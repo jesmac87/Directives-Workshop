@@ -15,7 +15,7 @@ These components allow us to reuse code within our project, and throughout other
 		//parsed to show up as 'name-of-directive' in our HTML.
 
 		return {
-			  //you have 4 restrict options. You can use any of the 4 in any combonation.
+			  //you have 4 restrict options. You can use any of the 4 in any combination.
 			  //{'E': 'Element', 'A': 'Attribute', 'C': 'Class', 'M': 'Comment'}
 			  //typically we create them as Elements or Attributes.
 			restrict: 'EA',
@@ -57,7 +57,7 @@ If you dig through the angular documentation and as you become more familiar wit
 + ng-view
 + ng-repeat
 + ng-click
-+ ect...
++ etc...
 
 ####Step 1
 
