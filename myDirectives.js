@@ -8,7 +8,7 @@ app.directive('pending', function($q, $timeout) {
             request: '&',
         },
         link: function(scope, elem, attrs) {
-            console.log(scope, elem, attrs);
+
 
             //create a jqlite object for body element
             var body = angular.element(document).find('body');
@@ -27,6 +27,7 @@ app.directive('pending', function($q, $timeout) {
                         elem.text('Submit');
                         elem.removeAttr('disabled');
                         body.removeClass('pointer');
+                        deferred.resolve(response.data);
                     }, 1500);
 
                 });
@@ -35,5 +36,45 @@ app.directive('pending', function($q, $timeout) {
 
             });
         }
+    };
+});
+
+app.directive('notify', function() {
+    return {
+        restrict: 'A',
+
+        scope: {
+            title: '=',
+            body: '=',
+            icon: '='
+        },
+
+
+
+
+        link: function(scope, element, attrs) {
+            var Notification = window.Notification || window.mozNotification || window.webkitNotification;
+
+
+            element.bind('click', function() {
+                Notification.requestPermission(function(permission) {
+
+                });
+
+                var notification = new Notification(scope.title, {
+                    body: scope.body,
+                    icon: scope.icon,
+                });
+
+
+            });
+
+
+
+
+        },
+
+
+
     };
 });
